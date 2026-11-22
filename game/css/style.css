@@ -1,0 +1,163 @@
+:root {
+  --bg: #06080d;
+  --panel: #0d1119;
+  --line: #1d2434;
+  --ink: #c8d2e4;
+  --dim: #5d6a83;
+  --gold: #ffd34d;
+  --green: #46e07c;
+  --red: #ff5252;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: radial-gradient(1200px 700px at 50% 20%, #0b101c 0%, var(--bg) 70%);
+  color: var(--ink);
+  font-family: "Consolas", "Cascadia Mono", "Menlo", monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#stage {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+}
+
+#hud {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 7px 10px;
+  min-height: 44px;
+}
+
+.hud-block {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 10px;
+  border-right: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.hud-block:last-child {
+  border-right: none;
+}
+
+.hud-block.grow {
+  flex: 1;
+}
+
+.hud-label {
+  color: var(--dim);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.hud-value {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+#level-name {
+  color: var(--gold);
+}
+
+#alarm-track {
+  width: 100%;
+  min-width: 180px;
+  height: 14px;
+  background: #10141d;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+#alarm-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--green);
+  transition: width 0.12s linear, background 0.3s;
+}
+
+#alarm-fill.warn {
+  background: #ffe066;
+}
+
+#alarm-fill.hot {
+  background: #ff9f43;
+}
+
+#alarm-fill.crit {
+  background: var(--red);
+  animation: flash 0.4s steps(2) infinite;
+}
+
+@keyframes flash {
+  50% {
+    opacity: 0.55;
+  }
+}
+
+#status-text {
+  color: var(--green);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+#status-text.seen {
+  color: var(--red);
+  animation: flash 0.5s steps(2) infinite;
+}
+
+#status-text.caution {
+  color: #ffe066;
+}
+
+#emp-charges {
+  letter-spacing: 2px;
+  color: #6ee7ff;
+}
+
+#frame {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  line-height: 0;
+  box-shadow: 0 18px 60px rgba(0, 0, 0, 0.6);
+}
+
+canvas#game {
+  width: 960px;
+  height: 600px;
+  max-width: calc(100vw - 24px);
+  max-height: calc(100vh - 120px);
+  background: #0a0d14;
+  display: block;
+}
+
+#hint {
+  text-align: center;
+  color: var(--dim);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MIDNIGHT VAULT — a top-down heist</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="stage">
+    <header id="hud">
+      <div class="hud-block" id="hud-level">
+        <span class="hud-label">LEVEL</span>
+        <span class="hud-value" id="level-name">LOBBY</span>
+      </div>
+      <div class="hud-block grow" id="hud-alarm">
+        <span class="hud-label">ALARM</span>
+        <div id="alarm-track"><div id="alarm-fill"></div></div>
+      </div>
+      <div class="hud-block" id="hud-status">
+        <span class="hud-value" id="status-text">HIDDEN</span>
+      </div>
+      <div class="hud-block" id="hud-loot">
+        <span class="hud-label">LOOT</span>
+        <span class="hud-value" id="loot-count">0/1</span>
+      </div>
+      <div class="hud-block" id="hud-emp">
+        <span class="hud-label">EMP</span>
+        <span class="hud-value" id="emp-charges">[ ][ ]</span>
+        <span class="hud-key">E</span>
+      </div>
+      <div class="hud-block" id="hud-sneak">
+        <span class="hud-label">SNEAK</span>
+        <span class="hud-value" id="sneak-state">UP</span>
+        <span class="hud-key">SHIFT</span>
+      </div>
+    </header>
+    <div id="frame">
+      <canvas id="game" width="960" height="600"></canvas>
+    </div>
+    <footer id="hint">WASD / ARROWS move &middot; SHIFT sneak &middot; E emp pulse &middot; R restart &middot; 1&ndash;3 jump level</footer>
+  </div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
